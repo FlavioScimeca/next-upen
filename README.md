@@ -1,6 +1,24 @@
 - To start run the command
   ```
-  1. npm install
-  2. npx prisma generate
-  3. npx prisma studio
+  npm install
   ```
+- to generate Prisma client
+  ```
+  npx prisma generate
+  ```
+- to seed the database
+  ```
+  npx prisma seed
+  ```
+- to see all the Posts
+  ```
+    npx prisma studio
+  ```
+
+### file to check
+
+- prisma/prisma.schema
+- prisma/seed.ts
+- src/app/lib/prisma.ts
+- src/app/actions/getPosts.ts
+- src/app/page.tsx

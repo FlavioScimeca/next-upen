@@ -1,3 +1,5 @@
+// connect the DB through Prisma client
+
 import { PrismaClient } from '@prisma/client';
 
 declare global {
