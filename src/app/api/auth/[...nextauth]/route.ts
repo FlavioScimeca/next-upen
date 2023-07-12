@@ -1,5 +1,5 @@
 import { NextApiHandler } from 'next';
-import NextAuth, { AuthOptions } from 'next-auth';
+import NextAuth, { AuthOptions, NextAuthOptions } from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import GitHubProvider from 'next-auth/providers/github';
 import prisma from '@/app/lib/prisma';
@@ -12,9 +12,14 @@ const authOption: AuthOptions = {
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
+  session: {
+    strategy: 'jwt',
+  },
   secret: process.env.NEXTAUTH_SECRET,
 };
 
-const authHandler: NextApiHandler = NextAuth(authOption);
+const handler = NextAuth(authOption);
 
-export { authHandler as GET, authHandler as POST };
+export { handler as GET, handler as POST };
+
+// export default NextAuth(authOption);

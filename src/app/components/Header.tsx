@@ -13,7 +13,8 @@ const Header: React.FC = () => {
 
   let left = (
     <div className="left">
-      <Link href="/">Feed</Link>
+      <Link href="/">Home</Link>
+      <Link href="/create">Create</Link>
     </div>
   );
 
@@ -22,7 +23,7 @@ const Header: React.FC = () => {
   if (status === 'loading') {
     left = (
       <div className="left">
-        <Link href="/">Feed</Link>
+        <Link href="/">Home</Link>
       </div>
     );
     right = (

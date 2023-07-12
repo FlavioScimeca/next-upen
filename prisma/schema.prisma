@@ -14,12 +14,12 @@ model Post {
   id     String @id @default(cuid())
   title  String @db.VarChar(1024)
   body   String @db.VarChar(2048)
-  userId Int?
+  userId String?
   author User?  @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(cuid())
   name      String
   email     String   @unique
   emailVerified DateTime?
@@ -29,12 +29,13 @@ model User {
   posts     Post[]
   accounts      Account[]
   sessions      Session[]
+
   @@map("users")
 }
 
 model Account {
   id                 String  @id @default(cuid())
-  userId             Int  @map("user_id")
+  userId             String  @map("user_id")
   type               String
   provider           String
   providerAccountId  String  @map("provider_account_id")
@@ -56,7 +57,7 @@ model Account {
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique@map("session_token")
-  userId       Int   @map("user_id")
+  userId       String   @map("user_id")
   expires      DateTime
   user         User     @relation(fields:[userId], references:[id], onDelete: Cascade)
   }

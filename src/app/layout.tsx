@@ -19,11 +19,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
-        <AuthContext>
-          <Header />
-          {children}
-        </AuthContext>
+        {children}
       </body>
     </html>
   );
 }
+
+// return (
+//   <html lang="en">
+//     <body className={inter.className} suppressHydrationWarning={true}>
+//       <AuthContext>
+//         <Header />
+//         {children}
+//       </AuthContext>
+//     </body>
+//   </html>
+// );
