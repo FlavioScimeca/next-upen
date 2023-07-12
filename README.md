@@ -1,4 +1,4 @@
-### file to check
+### files to check
 
 - prisma/prisma.schema
 - prisma/seed.ts
